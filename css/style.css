@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg: #f4f6fb; --panel: #ffffff; --text: #20243a; --muted: #858ba3;
+  --line: #edf0f6; --accent: #7167e8; --accent-soft: #f0efff;
+  --shadow: 0 14px 40px rgba(39, 44, 78, .06);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; transition: background .25s, color .25s; }
+body.dark { --bg: #171927; --panel: #222538; --text: #f1f2fb; --muted: #a3a8bd; --line: #34384e; --accent: #a49cff; --accent-soft: #34314f; --shadow: 0 14px 40px rgba(0,0,0,.16); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.dashboard { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 18px; }
+.topbar, .top-actions, .brand, .section-heading, .task-toolbar, .timer-actions { display: flex; align-items: center; }
+.topbar, .section-heading, .task-toolbar { justify-content: space-between; }
+.topbar { margin-bottom: 24px; }
+.brand { gap: 10px; color: var(--text); text-decoration: none; font: 800 19px Manrope, sans-serif; }
+.brand-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: white; background: var(--accent); }
+.top-actions { gap: 10px; }
+.icon-button, .profile-button { border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 12px; padding: 10px 13px; }
+.profile-button { font-size: 13px; font-weight: 700; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); padding: 25px; }
+.hero { display: flex; justify-content: space-between; align-items: center; padding: 32px 36px; margin-bottom: 22px; background: linear-gradient(115deg, var(--panel), var(--accent-soft)); }
+.eyebrow { margin: 0 0 9px; color: var(--accent); font-size: 10px; letter-spacing: 1.8px; font-weight: 700; }
+h1, h2 { font-family: Manrope, sans-serif; margin: 0; }
+h1 { font-size: clamp(27px, 4vw, 38px); letter-spacing: -1.3px; }
+h2 { font-size: 19px; }
+.subtitle { color: var(--muted); margin: 9px 0 0; font-size: 13px; }
+.clock-wrap { text-align: right; }
+.clock { font: 800 clamp(27px, 4vw, 38px) Manrope, sans-serif; letter-spacing: -1px; }
+.date { margin-top: 5px; color: var(--muted); font-size: 12px; }
+.content-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .85fr); gap: 22px; align-items: start; }
+.section-heading { margin-bottom: 20px; }
+.count-badge { padding: 7px 11px; border-radius: 20px; color: var(--accent); background: var(--accent-soft); font-size: 11px; font-weight: 700; }
+.task-form { display: flex; gap: 9px; }
+input, select { min-width: 0; border: 1px solid var(--line); border-radius: 11px; background: var(--bg); color: var(--text); outline: none; padding: 12px 13px; font-size: 12px; }
+input:focus, select:focus { border-color: var(--accent); }
+.task-form input { flex: 1; }
+.primary-button, .secondary-button { border: 0; border-radius: 11px; padding: 11px 15px; font-size: 12px; font-weight: 700; }
+.primary-button { background: var(--accent); color: white; }
+.primary-button:hover { filter: brightness(1.06); }
+.secondary-button { background: var(--accent-soft); color: var(--accent); }
+.message { min-height: 16px; margin: 7px 0 3px; color: #d66a6a; font-size: 11px; }
+.task-toolbar { margin: 14px 0 9px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.task-toolbar select { padding: 7px 9px; font-size: 11px; }
+.task-list { list-style: none; margin: 0; padding: 0; }
+.task-item { display: flex; align-items: center; gap: 10px; padding: 13px 2px; border-bottom: 1px solid var(--line); }
+.task-item:last-child { border-bottom: 0; }
+.task-item input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
+.task-text { flex: 1; overflow-wrap: anywhere; font-size: 13px; }
+.task-item.completed .task-text { color: var(--muted); text-decoration: line-through; }
+.task-actions { display: flex; gap: 5px; }
+.small-button { border: 0; border-radius: 8px; padding: 6px 8px; background: var(--bg); color: var(--muted); font-size: 11px; }
+.small-button:hover { color: var(--accent); }
+.empty-state { text-align: center; color: var(--muted); padding: 22px 5px 8px; font-size: 12px; }
+.side-column { display: grid; gap: 22px; }
+.timer-panel { text-align: center; }
+.timer-panel .eyebrow { text-align: left; }
+.timer-panel h2 { text-align: left; }
+.small { text-align: left; font-size: 11px; }
+.timer-ring { width: 170px; height: 170px; margin: 23px auto 18px; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(var(--accent) 100%, var(--accent-soft) 0); position: relative; }
+.timer-ring::before { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: var(--panel); }
+.timer-display { position: relative; font: 800 37px Manrope, sans-serif; }
+.timer-actions { justify-content: center; gap: 7px; }
+.timer-actions button { padding: 10px 13px; }
+.timer-status { margin: 14px 0 0; color: var(--muted); font-size: 11px; }
+.compact { margin-bottom: 15px; }
+.link-form { display: grid; gap: 8px; }
+.link-form input { width: 100%; }
+.full { width: 100%; }
+.quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 13px; }
+.quick-link { display: flex; align-items: center; justify-content: space-between; gap: 5px; min-width: 0; padding: 10px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); text-decoration: none; font-size: 11px; font-weight: 700; }
+.quick-link span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.remove-link { border: 0; color: inherit; background: transparent; padding: 0 2px; }
+footer { padding: 23px 0 5px; text-align: center; color: var(--muted); font-size: 11px; }
+footer span { color: var(--accent); }
+@media (max-width: 760px) {
+  .dashboard { width: min(100% - 24px, 560px); padding-top: 17px; }
+  .hero { padding: 24px; align-items: flex-start; gap: 18px; flex-direction: column; }
+  .clock-wrap { text-align: left; }
+  .content-grid { grid-template-columns: 1fr; }
+  .panel { padding: 20px; }
+}
+@media (max-width: 420px) {
+  .task-form { flex-direction: column; }
+  .task-form button { width: 100%; }
+  .timer-actions { gap: 5px; }
+  .timer-actions button { padding: 10px; }
+}
